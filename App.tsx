@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppProvider, RealmProvider, UserProvider } from "@realm/react";
+import AuthStack from "./src/routes/auth/AuthStack";
+import AppDrawer from "./src/routes/app/AppDrawer";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppProvider id="application-0-kgqjw" baseUrl="">
+      <UserProvider fallback={AuthStack}>
+        <RealmProvider
+          sync={{
+            flexible: true,
+            onError: (error) => console.log(error),
+            initialSubscriptions: {
+              update(subs, realm) {
+                subs.add(realm.objects("Company")),
+                  subs.add(realm.objects("Purchase")),
+                  subs.add(realm.objects("Payment"));
+              },
+            },
+          }}>
+          <AppDrawer />
+        </RealmProvider>
+      </UserProvider>
+    </AppProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
