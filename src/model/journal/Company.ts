@@ -1,5 +1,10 @@
 import Realm from "realm";
+import Purchase from "./Purchase";
+import Payment from "./Payment";
 
+// TODO: Refactor Company model to include the following fields:
+// Purchase Objects
+// Payment Objects
 class Company extends Realm.Object<Company> {
   public static schema: Realm.ObjectSchema = {
     name: "Company",
@@ -16,6 +21,8 @@ class Company extends Realm.Object<Company> {
       bankName: { type: "string", optional: true },
       bankBranch: { type: "string", optional: true },
       note: { type: "string", optional: true },
+      purchases: "Purchase[]",
+      payments: "Payment[]",
       existingBalance: { type: "double", default: 0 },
       createdAt: { type: "date", default: new Date() },
       updatedAt: { type: "date", default: new Date() },
@@ -33,6 +40,8 @@ class Company extends Realm.Object<Company> {
   public bankBranch!: string;
   public note!: string;
   public existingBalance!: number;
+  public purchases?: Realm.List<Purchase>;
+  public payments?: Realm.List<Payment>;
   public createdAt!: Date;
   public updatedAt!: Date;
 }
