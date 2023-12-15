@@ -15,17 +15,29 @@ export type AuthStackParamList = {
 const AuthStack = () => {
   const AuthStack = createNativeStackNavigator<AuthStackParamList>();
   return (
-    <SafeAreaProvider>
+    <NavigationContainer>
       <PaperProvider>
-        <NavigationContainer>
+        <SafeAreaProvider>
           <AuthStack.Navigator>
-            <AuthStack.Screen name="Login" component={LoginScreen} />
-            <AuthStack.Screen name="Register" component={RegisterScreen} />
-            <AuthStack.Screen name="LoginReset" component={LoginResetScreen} />
+            <AuthStack.Screen
+              options={{ headerShown: true }}
+              name="Login"
+              component={LoginScreen}
+            />
+            <AuthStack.Screen
+              options={{ headerShown: true }}
+              name="Register"
+              component={RegisterScreen}
+            />
+            <AuthStack.Screen
+              options={{ headerShown: true }}
+              name="LoginReset"
+              component={LoginResetScreen}
+            />
           </AuthStack.Navigator>
-        </NavigationContainer>
+        </SafeAreaProvider>
       </PaperProvider>
-    </SafeAreaProvider>
+    </NavigationContainer>
   );
 };
 

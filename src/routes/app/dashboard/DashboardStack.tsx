@@ -15,10 +15,23 @@ const DashboardStack = () => {
   const DashboardStack = createNativeStackNavigator<DashboardStackParamList>();
   return (
     <DashboardStack.Navigator>
-      <DashboardStack.Screen name="summary" component={SummaryScreen} />
-      <DashboardStack.Screen name="sales" component={SalesAnalysisScreen} />
-      <DashboardStack.Screen name="profit" component={ProfitAnalysisScreen} />
       <DashboardStack.Screen
+        options={{ headerShown: false }}
+        name="summary"
+        component={SummaryScreen}
+      />
+      <DashboardStack.Screen
+        options={{ headerShown: false }}
+        name="sales"
+        component={SalesAnalysisScreen}
+      />
+      <DashboardStack.Screen
+        options={{ headerShown: false }}
+        name="profit"
+        component={ProfitAnalysisScreen}
+      />
+      <DashboardStack.Screen
+        options={{ headerShown: false }}
         name="expenditure"
         component={ExpenditureAnalysisScreen}
       />

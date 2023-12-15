@@ -5,6 +5,10 @@ node_modules/
 .yarn/
 .yarnrc.yml
 
+# native builds
+ios/
+andriod/
+
 # Expo
 .expo/
 dist/

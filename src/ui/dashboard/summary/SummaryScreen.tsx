@@ -1,13 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, ScrollView } from "react-native";
 import React from "react";
+import Header from "../../../components/header/Header";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { BlurView } from "@react-native-community/blur";
 
 type Props = {};
 
 const SummaryScreen = (props: Props) => {
   return (
-    <View>
-      <Text>SummaryScreen</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView stickyHeaderIndices={[0]}>
+        <Header />
+        <Text>SummaryScreen</Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

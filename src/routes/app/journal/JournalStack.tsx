@@ -9,7 +9,11 @@ const JournalStack = () => {
   const JournalStack = createNativeStackNavigator<JournalStackParamList>();
   return (
     <JournalStack.Navigator>
-      <JournalStack.Screen name="journal" component={JournalTab} />
+      <JournalStack.Screen
+        options={{ headerShown: false }}
+        name="journal"
+        component={JournalTab}
+      />
     </JournalStack.Navigator>
   );
 };

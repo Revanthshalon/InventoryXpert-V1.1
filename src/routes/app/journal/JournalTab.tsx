@@ -12,7 +12,7 @@ export type JournalTabParamList = {
 const JournalTab = () => {
   const JournalTab = createBottomTabNavigator<JournalTabParamList>();
   return (
-    <JournalTab.Navigator>
+    <JournalTab.Navigator screenOptions={{ headerShown: false }}>
       <JournalTab.Screen name="company" component={CompanyHomeScreen} />
       <JournalTab.Screen name="payment" component={PaymentHomeScreen} />
       <JournalTab.Screen name="purchase" component={PurchaseHomeScreen} />
