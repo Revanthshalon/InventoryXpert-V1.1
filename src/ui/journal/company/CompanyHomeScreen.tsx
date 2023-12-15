@@ -8,7 +8,7 @@ type Props = {};
 const CompanyHomeScreen = (props: Props) => {
   return (
     <SafeAreaView>
-      <Header />
+      <Header placeholder="Search Companies" />
       <Text>CompanyHomeScreen</Text>
     </SafeAreaView>
   );

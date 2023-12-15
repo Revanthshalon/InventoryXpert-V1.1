@@ -7,8 +7,13 @@ import {
 } from "@react-navigation/native";
 import { DashboardStackParamList } from "../../routes/app/dashboard/DashboardStack";
 import { IconButton } from "react-native-paper";
+import Search from "../search/Search";
 
-type Props = {};
+type Props = {
+  placeholder: string;
+  searchText: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+};
 
 const Header = (props: Props) => {
   const nav =
@@ -21,18 +26,25 @@ const Header = (props: Props) => {
   return (
     <View style={[styles.headerContainer, { width: width }]}>
       <Image
-        style={{ width: 45, height: 45 }}
+        style={{
+          flex: 1,
+          maxWidth: 45,
+          maxHeight: 45,
+        }}
         source={require("../../../assets/logo.png")}
       />
-      <View style={styles.buttonContainer}>
-        <IconButton icon="magnify" size={30} iconColor="black" />
-        <IconButton
-          icon="menu"
-          size={30}
-          iconColor="black"
-          onPress={menuHandler}
-        />
-      </View>
+      <Search
+        containerStyle={styles.searchContainer}
+        placeholder={props.placeholder}
+        searchText={props.searchText}
+        setSearchText={props.setSearchText}
+      />
+      <IconButton
+        icon="menu"
+        size={30}
+        iconColor="black"
+        onPress={menuHandler}
+      />
     </View>
   );
 };
@@ -49,10 +61,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    width: "30%",
+  searchContainer: {
+    flex: 2,
+    borderRadius: 40,
+  },
+  menuButton: {
+    flex: 1,
   },
 });
