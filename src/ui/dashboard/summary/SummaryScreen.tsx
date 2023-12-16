@@ -24,9 +24,9 @@ const SummaryScreen = (props: Props) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           scrollEnabled>
-          <Card title="Profit" content="$2460.89" />
-          <Card title="Sales" content="$2460.89" />
-          <Card title="Expenditure" content="$2460.89" />
+          <Card title="Profit - Today" content="$2460.89" />
+          <Card title="Sales- Today" content="$2460.89" />
+          <Card title="Expenditure- Today" content="$2460.89" />
         </ScrollView>
         <ChartCard title="Overview" />
         <TableCard cardTitle="Upcoming Payments" />

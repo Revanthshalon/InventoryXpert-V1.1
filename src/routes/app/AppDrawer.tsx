@@ -6,12 +6,14 @@ import DashboardStack from "./dashboard/DashboardStack";
 import JournalStack from "./journal/JournalStack";
 import SettingsStack from "./settings/SettingsStack";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import CustomDrawer from "../../components/drawer/CustomDrawer";
 
 export type AppDrawerParamList = {
   dashboardStack: undefined;
   inventoryStack: undefined;
   journalStack: undefined;
   settingsStack: undefined;
+  profileStack: undefined;
 };
 
 const AppDrawer = () => {
@@ -22,6 +24,7 @@ const AppDrawer = () => {
         <PaperProvider>
           <NavigationContainer>
             <AppDrawer.Navigator
+              drawerContent={(props) => <CustomDrawer {...props} />}
               screenOptions={{
                 headerShown: false,
                 drawerPosition: "right",

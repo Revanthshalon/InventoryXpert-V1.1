@@ -8,6 +8,7 @@ import {
 import { DashboardStackParamList } from "../../routes/app/dashboard/DashboardStack";
 import { IconButton } from "react-native-paper";
 import Search from "../search/Search";
+import { BlurView } from "expo-blur";
 
 type Props = {
   placeholder: string;
@@ -25,32 +26,43 @@ const Header = (props: Props) => {
     nav.dispatch(DrawerActions.openDrawer());
   };
   return (
-    <View
-      style={[
-        styles.headerContainer,
-        { width: width },
-        props.headerContainerStyle,
-      ]}>
-      <Image
+    <View>
+      <BlurView
+        intensity={40}
+        tint="light"
         style={{
-          flex: 1,
-          maxWidth: 45,
-          maxHeight: 45,
-        }}
-        source={require("../../../assets/logo.png")}
-      />
-      <Search
-        containerStyle={styles.searchContainer}
-        placeholder={props.placeholder}
-        searchText={props.searchText}
-        setSearchText={props.setSearchText}
-      />
-      <IconButton
-        icon="menu"
-        size={30}
-        iconColor="black"
-        onPress={menuHandler}
-      />
+          position: "absolute",
+          width: width,
+          height: 70,
+          zIndex: 0,
+        }}></BlurView>
+      <View
+        style={[
+          styles.headerContainer,
+          { width: width },
+          props.headerContainerStyle,
+        ]}>
+        <Image
+          style={{
+            flex: 1,
+            maxWidth: 45,
+            maxHeight: 45,
+          }}
+          source={require("../../../assets/logo.png")}
+        />
+        <Search
+          containerStyle={styles.searchContainer}
+          placeholder={props.placeholder}
+          searchText={props.searchText}
+          setSearchText={props.setSearchText}
+        />
+        <IconButton
+          icon="menu"
+          size={30}
+          iconColor="black"
+          onPress={menuHandler}
+        />
+      </View>
     </View>
   );
 };
