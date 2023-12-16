@@ -1,7 +1,12 @@
-import { StyleSheet, Text, ScrollView } from "react-native";
+import { StyleSheet, Text, ScrollView, View } from "react-native";
 import React from "react";
 import Header from "../../../components/header/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
+import theme from "../../../constants/colors";
+import { Surface } from "react-native-paper";
+import Card from "../../../components/card/Card";
+import ChartCard from "../../../components/card/ChartCard";
+import TableCard from "../../../components/card/TableCard";
 
 type Props = {};
 
@@ -15,7 +20,17 @@ const SummaryScreen = (props: Props) => {
           searchText={searchText}
           setSearchText={setSearchText}
         />
-        <Text>SummaryScreen</Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          scrollEnabled>
+          <Card title="Profit" content="$2460.89" />
+          <Card title="Sales" content="$2460.89" />
+          <Card title="Expenditure" content="$2460.89" />
+        </ScrollView>
+        <ChartCard title="Overview" />
+        <TableCard cardTitle="Upcoming Payments" />
+        <ChartCard title="Chart Title" />
       </ScrollView>
     </SafeAreaView>
   );
@@ -23,4 +38,8 @@ const SummaryScreen = (props: Props) => {
 
 export default SummaryScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  bodyContainer: {
+    paddingHorizontal: 10,
+  },
+});

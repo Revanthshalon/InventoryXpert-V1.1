@@ -13,6 +13,7 @@ type Props = {
   placeholder: string;
   searchText: string;
   setSearchText: React.Dispatch<React.SetStateAction<string>>;
+  headerContainerStyle?: any;
 };
 
 const Header = (props: Props) => {
@@ -24,7 +25,12 @@ const Header = (props: Props) => {
     nav.dispatch(DrawerActions.openDrawer());
   };
   return (
-    <View style={[styles.headerContainer, { width: width }]}>
+    <View
+      style={[
+        styles.headerContainer,
+        { width: width },
+        props.headerContainerStyle,
+      ]}>
       <Image
         style={{
           flex: 1,

@@ -4976,6 +4976,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-blur@npm:12.6.0":
+  version: 12.6.0
+  resolution: "expo-blur@npm:12.6.0"
+  peerDependencies:
+    expo: "*"
+  checksum: cc900eb802a901dac90f55be0839407aa7afb7f21b6e4c046cbfe475ebfe0c6ca9d875db9358ba5c09e8e2aa310db14739cffe95eae5df0baf7a3373d487d05c
+  languageName: node
+  linkType: hard
+
 "expo-constants@npm:~14.4.2":
   version: 14.4.2
   resolution: "expo-constants@npm:14.4.2"
@@ -5954,6 +5963,7 @@ __metadata:
     "@realm/react": "npm:^0.6.2"
     "@types/react": "npm:~18.2.14"
     expo: "npm:~49.0.15"
+    expo-blur: "npm:12.6.0"
     expo-linear-gradient: "npm:~12.3.0"
     expo-splash-screen: "npm:~0.20.5"
     expo-status-bar: "npm:~1.6.0"

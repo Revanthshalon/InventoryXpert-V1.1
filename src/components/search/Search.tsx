@@ -7,6 +7,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import theme from "../../constants/colors";
 
 type Props = {
   containerStyle?: any;
@@ -56,6 +57,7 @@ const Search = (props: Props) => {
         style={[styles.textInput, animatedSearchStyles]}
         value={props.searchText}
         onChangeText={props.setSearchText}
+        placeholderTextColor={theme.light.text}
       />
       <AnimatedButton
         icon={searchState ? "close" : "magnify"}
